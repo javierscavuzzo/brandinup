@@ -4,14 +4,14 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>BrandinUp - Natalia Lanza Castelli</title>
-        <link rel="stylesheet" href="/public/styles.css" />
+        <link rel="stylesheet" href="/styles.css" />
     </head>
     <body>
         <header>
             <div class="container header-container">
                 <div class="logo">
                     <img
-                        src="/public/image/logobrand.png"
+                        src="/image/logobrand.png"
                         alt="BrandinUp Logo"
                     />
                 </div>
@@ -38,7 +38,7 @@
                 <div class="container about-container">
                     <div class="about-image">
                         <img
-                            src="/public/image/natalia.jpg"
+                            src="/image/natalia.jpg"
                             alt="Natalia Lanza Castelli"
                         />
                         <p class="about-name-gradient">
@@ -125,10 +125,7 @@
                 <h2>Contacto</h2>
                 <p>¿Querés conocer más sobre cómo trabajar juntos?</p>
 
-                <form
-                    id="contact-form"
-                    class="contact-form"
-                >
+                <form class="contact-form" action="/send" method="POST">
                     <input
                         type="text"
                         name="nombre"
@@ -150,6 +147,7 @@
                     ></textarea>
                     <button type="submit" class="contact-btn">Enviar</button>
                 </form>
+
                 <p id="form-message" style="margin-top: 1rem"></p>
             </section>
         </main>
@@ -185,7 +183,7 @@
                 const data = Object.fromEntries(formData.entries());
 
                 try {
-                    const response = await fetch('/send-email', {
+                    const response = await fetch('/send', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
